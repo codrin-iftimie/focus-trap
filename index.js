@@ -22,7 +22,9 @@ function activate(element, options) {
   tryFocus(firstFocusNode());
 
   document.addEventListener('focus', checkFocus, true);
-  document.addEventListener('click', checkClick, true);
+  if (!options.allowClick) {
+    document.addEventListener('click', checkClick, true);
+  }
   document.addEventListener('keydown', checkKey, true);
 }
 
