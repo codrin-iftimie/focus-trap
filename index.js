@@ -34,7 +34,7 @@ function firstFocusNode() {
   if (!config.initialFocus) {
     node = tabbableNodes[0];
     if (!node) {
-      throw new Error('You can\'t have a focus-trap without at least one focusable element');
+      console.warn('You can\'t have a focus-trap without at least one focusable element');
     }
     return node;
   }
@@ -45,7 +45,7 @@ function firstFocusNode() {
     node = config.initialFocus;
   }
   if (!node) {
-    throw new Error('The `initialFocus` selector you passed refers to no known node');
+    console.warn('The `initialFocus` selector you passed refers to no known node');
   }
   return node;
 }
