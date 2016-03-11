@@ -20,8 +20,9 @@ function activate(element, options) {
   updateTabbableNodes();
 
   tryFocus(firstFocusNode());
-
-  document.addEventListener('focus', checkFocus, true);
+  if (!options.allowClick) {
+    document.addEventListener('focus', checkFocus, true);
+  }
   if (!options.allowClick) {
     document.addEventListener('click', checkClick, true);
   }
